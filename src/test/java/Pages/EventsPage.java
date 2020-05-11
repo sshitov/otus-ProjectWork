@@ -1,38 +1,130 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class EventsPage {
 
-    private WebDriver driver;
-
     public EventsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
-        this.driver = driver;
     }
 
     @FindBy(css = "[class*='active'] [class*='evnt-tab-counter']")
-    protected WebElement upcomingEventsCounterValue;
+    protected WebElement eventsCounterValue;
 
     @FindBy(css = "[class*='evnt-event-card']")
-    protected List<WebElement> upcomingEventsList;
+    protected List<WebElement> eventsList;
 
-    public int getUpcomingEventsCounterValue() {
-        return Integer.parseInt(upcomingEventsCounterValue.getText());
+    @FindBy(css = ".tab-content > div > div:nth-child(1) > div > div:nth-child(1)")
+    protected WebElement firstEventCard;
+
+    @FindBy(css = ".date")
+    protected List<WebElement> eventsCardsDate;
+
+    @FindBy(css = ".evnt-tabs-list li:nth-child(2)")
+    protected WebElement pastEventsSection;
+
+    @FindBy(css = "[id='filter_location']")
+    protected WebElement locationFilter;
+
+    @FindBy(css = "[data-value='China']")
+    protected WebElement locationValueChina;
+
+/*    @FindBy(css = ".evnt-global-loader")
+    protected WebElement loader;*/
+
+    public WebElement getLocationFilter() {
+        return locationFilter;
     }
 
-    public List<WebElement> getUpcomingEventsList() {
-        return upcomingEventsList;
+    public WebElement getLocationValueChina() {
+        return locationValueChina;
     }
 
-    public int getUpcomingEventsListSize() {
-        return upcomingEventsList.size();
+    public WebElement getPastEventsSection() {
+        return pastEventsSection;
     }
 
+    public WebElement getFirstEventCard() {
+        return firstEventCard;
+    }
+
+    public WebElement eventCardLocation() {
+        return firstEventCard.findElement(By.cssSelector("div:nth-child(1) > div > :nth-child(1) > p"));
+    }
+
+    public WebElement eventCardLanguage() {
+        return firstEventCard.findElement(By.cssSelector("div:nth-child(1) > div > :nth-child(2) > p"));
+    }
+
+    public WebElement eventCardName() {
+        return firstEventCard.findElement(By.cssSelector("a > div > div:nth-child(2) > div > :nth-child(1)"));
+    }
+
+    public WebElement eventCardDate() {
+        return firstEventCard.findElement(By.cssSelector("div:nth-child(2) > div > :nth-child(2) > div > div > p > span:nth-child(1)"));
+    }
+
+    public WebElement eventCardRegisterInfo() {
+        return firstEventCard.findElement(By.cssSelector("div:nth-child(2) > div > :nth-child(2) > div > div > p > span:nth-child(2)"));
+    }
+
+    public WebElement eventCardSpeakers() {
+        return firstEventCard.findElement(By.cssSelector("a > div > div:nth-child(3) > div > div"));
+    }
+
+    public int getEventsCounterValue() {
+        return Integer.parseInt(eventsCounterValue.getText());
+    }
+
+    public int getEventsListSize() {
+        return eventsList.size();
+    }
+
+
+    public ArrayList<Date> getEventsDates() throws ParseException {
+
+        ArrayList<String> stringDates = new ArrayList<>();
+
+        for (WebElement webElement : eventsCardsDate) {
+            String date = webElement.getAttribute("innerText");
+            stringDates.add(date);
+        }
+
+        ArrayList<Date> eventsDates = new ArrayList<>();
+
+        for (String date : stringDates) {
+            DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH);
+            eventsDates.add(df.parse(date));
+        }
+        return eventsDates;
+    }
+
+    public void selectPastEventsSection() {
+        getPastEventsSection().click();
+    }
+
+    public EventsPage openFilterByLocation() {
+        getLocationFilter().click();
+        return this;
+    }
+    public void selectLocationValueChina() {
+        getLocationValueChina().click();
+    }
+
+    public void openFirstEventCard(){
+        getFirstEventCard().click();
+    }
 
 }

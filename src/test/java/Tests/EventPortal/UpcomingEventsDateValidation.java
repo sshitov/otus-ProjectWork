@@ -1,20 +1,18 @@
 package Tests.EventPortal;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import Pages.EventsPage;
+import Pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 public class UpcomingEventsDateValidation extends BaseTest {
+
+    private MainPage mainPage;
+    private EventsPage eventsPage;
 
     @BeforeClass
     public void setupDriver() {
@@ -24,6 +22,8 @@ public class UpcomingEventsDateValidation extends BaseTest {
     @BeforeMethod
     public void createWebDriver() throws MalformedURLException {
         create();
+        mainPage = new MainPage(getDriver());
+        eventsPage = new EventsPage(getDriver());
     }
 
     @AfterMethod
@@ -34,26 +34,11 @@ public class UpcomingEventsDateValidation extends BaseTest {
     @Test
     public void upcomingEventsDateValidation() throws ParseException {
 
-        getDriver().get(getBaseUrl());
+        mainPage.open();
 
-        getDriver().findElement(By.cssSelector(".evnt-platform-header [href='/events']")).click();
+        mainPage.openEventsPage();
 
-        List<WebElement> upcomingEventCardsDate = getDriver().findElements(By.cssSelector(".date"));
-
-        ArrayList<String> upcomingEventsStringDates = new ArrayList<>();
-
-        for (WebElement webElement : upcomingEventCardsDate) {
-            String date = webElement.getAttribute("innerText");
-            upcomingEventsStringDates.add(date);
-        }
-        ArrayList<Date> upcomingEventsDates = new ArrayList<>();
-
-        for (String date : upcomingEventsStringDates) {
-            DateFormat df = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH);
-            upcomingEventsDates.add(df.parse(date));
-        }
-
-        for (Date date : upcomingEventsDates) {
+        for (Date date : eventsPage.getEventsDates()) {
             if (currentDate.compareTo(date) > 0)
                 Assert.fail();
         }

@@ -1,16 +1,18 @@
 package Tests.EventPortal;
 
-import org.openqa.selenium.By;
+import Pages.EventPage;
+import Pages.EventsPage;
+import Pages.MainPage;
+import org.testng.Assert;
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 
 import java.net.MalformedURLException;
 
-
 public class EventDetailInfoTest extends BaseTest {
 
-
-    SoftAssert softAssertion = new SoftAssert();
+    private MainPage mainPage;
+    private EventsPage eventsPage;
+    private EventPage eventPage;
 
     @BeforeClass
     public void setupDriver() {
@@ -20,6 +22,9 @@ public class EventDetailInfoTest extends BaseTest {
     @BeforeMethod
     public void createWebDriver() throws MalformedURLException {
         create();
+        mainPage = new MainPage(getDriver());
+        eventsPage = new EventsPage(getDriver());
+        eventPage = new EventPage(getDriver());
     }
 
     @AfterMethod
@@ -28,24 +33,20 @@ public class EventDetailInfoTest extends BaseTest {
     }
 
     @Test
-    public void pastEventsInChinaTests() {
+    public void eventDetailInfoTest() {
 
-        getDriver().get(getBaseUrl());
-        getDriver().findElement(By.cssSelector(".evnt-platform-header [href='/events']")).click();
-        getDriver().findElement(By.cssSelector(".tab-content > div > div:nth-child(1) > div > div:nth-child(1) > div")).click();
+        mainPage.open();
 
-        //шапка
-        softAssertion.assertTrue(getDriver().findElement(By.cssSelector(".evnt-hero-header")).isDisplayed());
-        //кнопка
-        softAssertion.assertTrue(getDriver().findElement(By.cssSelector(".evnt-reg-wrapper button")).isDisplayed());
-        //тело
-        softAssertion.assertTrue(getDriver().findElement(By.cssSelector("[id='agenda']")).isDisplayed());
-        //день
-        softAssertion.assertTrue(getDriver().findElement(By.cssSelector("[class*='evnt-day']")).isDisplayed());
-        //время
-        softAssertion.assertTrue(getDriver().findElement(By.cssSelector(".evnt-timeline-table > div > span")).isDisplayed());
+        mainPage.openEventsPage();
 
-        //место - необязательный параметр в рамках события, может не быть места проведения соответственно ждать от любой карточки его наличия не корректно
+        eventsPage.openFirstEventCard();
+
+        Assert.assertTrue(eventPage.getEventHeader().isDisplayed());
+        Assert.assertTrue(eventPage.getRegisterButton().isDisplayed());
+        Assert.assertTrue(eventPage.getEventProgram().isDisplayed());
+        Assert.assertTrue(eventPage.getDate().isDisplayed());
+        Assert.assertTrue(eventPage.getTime().isDisplayed());
 
     }
+
 }

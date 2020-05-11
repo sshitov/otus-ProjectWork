@@ -1,14 +1,16 @@
 package Tests.EventPortal;
-import org.openqa.selenium.By;
 
-import org.openqa.selenium.WebElement;
+import Pages.EventsPage;
+import Pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
-import java.util.List;
 
 public class UpcomingEventsCountTest extends BaseTest {
+
+    private MainPage mainPage;
+    private EventsPage eventsPage;
 
     @BeforeClass
     public void setupDriver() {
@@ -18,7 +20,8 @@ public class UpcomingEventsCountTest extends BaseTest {
     @BeforeMethod
     public void createWebDriver() throws MalformedURLException {
         create();
-
+        mainPage = new MainPage(getDriver());
+        eventsPage = new EventsPage(getDriver());
     }
 
     @AfterMethod
@@ -29,16 +32,11 @@ public class UpcomingEventsCountTest extends BaseTest {
     @Test
     public void upcomingEventsCountTest() {
 
-        getDriver().get(getBaseUrl());
+        mainPage.open();
 
-        getDriver().findElement(By.cssSelector(".evnt-platform-header [href='/events']")).click();
+        mainPage.openEventsPage();
 
-        String upcomingEventsCounterValue = getDriver().findElement(By.cssSelector("[class*='active'] [class*='evnt-tab-counter']")).getText();
-
-        List<WebElement> upcomingEventCardsActualCount = getDriver().findElements(By.cssSelector("[class*='evnt-event-card']"));
-
-        Assert.assertEquals(upcomingEventCardsActualCount.size(), Integer.parseInt(upcomingEventsCounterValue));
+        Assert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
 
     }
-
 }
