@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -16,8 +18,13 @@ import java.util.Locale;
 
 public class EventsPage {
 
+    private WebDriver driver;
+    private WebDriverWait wait;
+
     public EventsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, 10);
     }
 
     @FindBy(css = "[class*='active'] [class*='evnt-tab-counter']")
@@ -40,9 +47,6 @@ public class EventsPage {
 
     @FindBy(css = "[data-value='China']")
     protected WebElement locationValueChina;
-
-/*    @FindBy(css = ".evnt-global-loader")
-    protected WebElement loader;*/
 
     public WebElement getLocationFilter() {
         return locationFilter;
@@ -119,12 +123,18 @@ public class EventsPage {
         getLocationFilter().click();
         return this;
     }
+
     public void selectLocationValueChina() {
         getLocationValueChina().click();
     }
 
-    public void openFirstEventCard(){
+    public void openFirstEventCard() {
         getFirstEventCard().click();
+    }
+
+    public void eventListUpdateWait() {
+        WebElement loader = driver.findElement(By.cssSelector(".evnt-global-loader"));
+        wait.until(ExpectedConditions.stalenessOf(loader));
     }
 
 }

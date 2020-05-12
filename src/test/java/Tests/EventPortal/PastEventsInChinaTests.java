@@ -2,12 +2,8 @@ package Tests.EventPortal;
 
 import Pages.EventsPage;
 import Pages.MainPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import org.testng.asserts.SoftAssert;
 
 import java.net.MalformedURLException;
 import java.text.ParseException;
@@ -17,8 +13,6 @@ public class PastEventsInChinaTests extends BaseTest {
 
     private MainPage mainPage;
     private EventsPage eventsPage;
-
-    SoftAssert softAssertion = new SoftAssert();
 
     @BeforeClass
     public void setupDriver() {
@@ -48,12 +42,11 @@ public class PastEventsInChinaTests extends BaseTest {
 
         eventsPage.openFilterByLocation().selectLocationValueChina();
 
-        //Уточнить как спрятать ожидание и нужно ли, т.к.
-        WebElement loader = getDriver().findElement(By.cssSelector(".evnt-global-loader"));
-        getWait().until(ExpectedConditions.stalenessOf(loader));
+        //  Waiting for event list update
+        eventsPage.eventListUpdateWait();
 
         // Verification that card count in the counter is right
-        softAssertion.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
+        Assert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
 
         // Verification that events dates less than current date
         for (Date date : eventsPage.getEventsDates()) {

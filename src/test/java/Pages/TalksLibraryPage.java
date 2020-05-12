@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +18,12 @@ public class TalksLibraryPage {
 
     public static final Logger logger = LogManager.getLogger(TalksLibraryPage.class.getName());
     private WebDriver driver;
+    private WebDriverWait wait;
 
     public TalksLibraryPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, 10);
     }
 
     @FindBy(css = ".show-more")
@@ -133,5 +137,10 @@ public class TalksLibraryPage {
 
         }
         return talkNames;
+    }
+
+    public void talkListUpdateWait() {
+        WebElement loader = driver.findElement(By.cssSelector(".evnt-global-loader"));
+        wait.until(ExpectedConditions.stalenessOf(loader));
     }
 }

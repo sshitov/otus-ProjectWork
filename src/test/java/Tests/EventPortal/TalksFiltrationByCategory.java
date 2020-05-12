@@ -3,9 +3,6 @@ package Tests.EventPortal;
 import Pages.MainPage;
 import Pages.TalkPage;
 import Pages.TalksLibraryPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -42,29 +39,26 @@ public class TalksFiltrationByCategory extends BaseTest {
 
         mainPage.openTalksLibraryPage();
 
-        talksLibraryPage.openMoreFilters();
-
         // Select filters
+        talksLibraryPage.openMoreFilters();
         talksLibraryPage.openCategoryFilter().selectCategoryFilterValueDesign();
-
         talksLibraryPage.openLocationFilter().selectLocationFilterValueBelarus();
-
         talksLibraryPage.openLanguageFilter().selectLanguageFilterValueEnglish();
 
-        // Page loading wait
-        WebElement loader = getDriver().findElement(By.cssSelector(".evnt-global-loader"));
-        getWait().until(ExpectedConditions.stalenessOf(loader));
+        // Waiting for talks list update
+        talksLibraryPage.talkListUpdateWait();
 
+        // Verifying that all talks in the list contain filtration values
         for (String talkUrl : talksLibraryPage.getTalksListUrls()) {
             talksLibraryPage.openTalkPage(talkUrl);
 
-            // Check category: Design
+            // Verifying that categories contain the 'Design' value
             Assert.assertTrue(talkPage.categoriesIsContains("Design"));
 
-            // Check search location: Belarus
+            // Verifying that location contains the 'Belarus' value
             Assert.assertTrue(talkPage.locationText().contains("Belarus"));
 
-            // Check search language: English
+            // Verifying that language contains the 'English' value
             Assert.assertEquals(talkPage.languageText(), "ENGLISH");
         }
 

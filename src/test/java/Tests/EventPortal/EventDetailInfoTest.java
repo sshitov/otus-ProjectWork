@@ -41,6 +41,7 @@ public class EventDetailInfoTest extends BaseTest {
 
         eventsPage.openFirstEventCard();
 
+        // Verification that event contains header witch register button, event program, date, time
         Assert.assertTrue(eventPage.getEventHeader().isDisplayed());
         Assert.assertTrue(eventPage.getRegisterButton().isDisplayed());
         Assert.assertTrue(eventPage.getEventProgram().isDisplayed());

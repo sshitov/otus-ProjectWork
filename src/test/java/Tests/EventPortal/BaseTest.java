@@ -31,11 +31,6 @@ public class BaseTest {
         return wait;
     }
 
-    public String getBaseUrl() {
-        return "https://events.epam.com/";
-    }
-
-
     public void driverLoad() {
         WebDriverManager.chromedriver().setup();
         logger.debug("driver is load");

@@ -36,6 +36,7 @@ public class EventCardViewTest extends BaseTest {
 
         mainPage.openEventsPage();
 
+        // Verification that card contains info about location, language, title, date, register info, speakers
         Assert.assertTrue(eventsPage.eventCardLocation().isDisplayed());
         Assert.assertTrue(eventsPage.eventCardLanguage().isDisplayed());
         Assert.assertTrue(eventsPage.eventCardName().isDisplayed());

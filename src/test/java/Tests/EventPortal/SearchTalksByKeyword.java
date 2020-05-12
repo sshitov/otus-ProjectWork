@@ -38,6 +38,7 @@ public class SearchTalksByKeyword extends BaseTest {
 
         talksLibraryPage.inputValueInSearchField("Azure");
 
+        // Verification that all 'talks' in the list in title contains search value
         for (String name : talksLibraryPage.getTalksListTitles()) {
             Assert.assertTrue(name.contains("Azure") || name.contains("azure"));
         }

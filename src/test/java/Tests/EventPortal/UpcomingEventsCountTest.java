@@ -36,6 +36,7 @@ public class UpcomingEventsCountTest extends BaseTest {
 
         mainPage.openEventsPage();
 
+        // Verifying that value in upcoming events counter is equals actual event count in the list
         Assert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
 
     }

@@ -1,5 +1,7 @@
 package Pages;
 
+import Config.CommonConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,8 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
 
+    public static CommonConfig commonConfig = ConfigFactory.create(CommonConfig.class, System.getProperties());
+
     private WebDriver driver;
-    protected String baseUrl = "https://events.epam.com/";
+    protected String baseUrl = commonConfig.baseUrl();
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
