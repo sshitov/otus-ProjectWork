@@ -40,13 +40,14 @@ public class PastEventsInChinaTests extends BaseTest {
         eventsPage.eventListUpdateWait();
 
         // Verification that card count in the counter is right
-        Assert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
+        softAssert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
 
         // Verification that events dates less than current date
         for (Date date : eventsPage.getEventsDates()) {
             if (currentDate.compareTo(date) < 0)
                 Assert.fail();
         }
+        softAssert.assertAll();
     }
 
 }

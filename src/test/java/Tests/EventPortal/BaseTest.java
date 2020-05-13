@@ -6,6 +6,7 @@ import Helpers.Enums.DriverType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
 
 import java.util.Date;
 
@@ -13,8 +14,11 @@ public class BaseTest {
 
     public static final Logger logger = LogManager.getLogger(BaseTest.class.getName());
     protected DriverManager driverManager;
+    public SoftAssert softAssert = new SoftAssert();
 
     Date currentDate = new Date();
+
+/*    protected static String browser = System.getProperty("browser", "chrome").toUpperCase();*/
 
     private WebDriver driver;
 

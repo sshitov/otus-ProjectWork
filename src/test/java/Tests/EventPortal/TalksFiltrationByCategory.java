@@ -3,8 +3,9 @@ package Tests.EventPortal;
 import Helpers.Pages.MainPage;
 import Helpers.Pages.TalkPage;
 import Helpers.Pages.TalksLibraryPage;
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class TalksFiltrationByCategory extends BaseTest {
 
@@ -46,15 +47,16 @@ public class TalksFiltrationByCategory extends BaseTest {
             talksLibraryPage.openTalkPage(talkUrl);
 
             // Verifying that categories contain the 'Design' value
-            Assert.assertTrue(talkPage.categoriesIsContains("Design"));
+            softAssert.assertTrue(talkPage.categoriesIsContains("Design"));
 
             // Verifying that location contains the 'Belarus' value
-            Assert.assertTrue(talkPage.locationText().contains("Belarus"));
+            softAssert.assertTrue(talkPage.locationText().contains("Belarus"));
 
             // Verifying that language contains the 'English' value
-            Assert.assertEquals(talkPage.languageText(), "ENGLISH");
-        }
+            softAssert.assertEquals(talkPage.languageText(), "ENGLISH");
 
+        }
+        softAssert.assertAll();
     }
 }
 
