@@ -5,6 +5,7 @@ import Helpers.Pages.EventsPage;
 import Helpers.Pages.MainPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class EventDetailInfoTest extends BaseTest {
@@ -13,9 +14,10 @@ public class EventDetailInfoTest extends BaseTest {
     private EventsPage eventsPage;
     private EventPage eventPage;
 
+    @Parameters("browser")
     @BeforeMethod
-    public void createWebDriver() {
-        driverCreate();
+    public void createWebDriver(String browserName) {
+        driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
         eventPage = new EventPage(getDriver());

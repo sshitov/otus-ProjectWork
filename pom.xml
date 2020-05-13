@@ -95,13 +95,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-<!--                    <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>-->
 
-<!--                    <systemPropertyVariables>
-                        <browser>${browser}</browser>
-                    </systemPropertyVariables>-->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testNg.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+
                 </configuration>
             </plugin>
 

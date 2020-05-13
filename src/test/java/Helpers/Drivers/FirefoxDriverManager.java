@@ -15,8 +15,6 @@ public class FirefoxDriverManager extends DriverManager {
     public static final Logger logger = LogManager.getLogger(FirefoxDriverManager.class.getName());
     public static FirefoxConfig firefoxConfig = ConfigFactory.create(FirefoxConfig.class, System.getProperties());
 
-    protected String pathToExe = firefoxConfig.pathToExe();
-
 /*    String selenoidBrowserName = firefoxConfig.selenoidBrowserName();
     String selenoidBrowserVersion = firefoxConfig.selenoidBrowserVersion();
     Boolean selenoidEnableVNC = firefoxConfig.selenoidEnableVNC();
@@ -32,8 +30,7 @@ public class FirefoxDriverManager extends DriverManager {
     @Override
     protected void createDriver() {
         FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(false);
-        options.setBinary(pathToExe);
+        options.setBinary("D:/Программы/Mozilla/firefox.exe");
         driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();

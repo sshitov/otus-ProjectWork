@@ -10,9 +10,10 @@ public class UpcomingEventsCountTest extends BaseTest {
     private MainPage mainPage;
     private EventsPage eventsPage;
 
+    @Parameters("browser")
     @BeforeMethod
-    public void createWebDriver() {
-        driverCreate();
+    public void createWebDriver(String browserName) {
+        driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
     }

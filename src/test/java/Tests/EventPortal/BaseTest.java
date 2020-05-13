@@ -18,17 +18,14 @@ public class BaseTest {
 
     Date currentDate = new Date();
 
-/*    protected static String browser = System.getProperty("browser", "chrome").toUpperCase();*/
-
     private WebDriver driver;
 
     public WebDriver getDriver() {
         return driver;
     }
 
-    public void driverCreate() {
-
-        driverManager = DriverManagerFactory.getManager(DriverType.valueOf("chrome"));
+    public void driverCreate(String browserName) {
+        driverManager = DriverManagerFactory.getManager(DriverType.valueOf(browserName));
         driver = driverManager.getDriver();
         logger.debug("Driver is created");
     }

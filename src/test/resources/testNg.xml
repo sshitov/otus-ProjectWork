@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestSuites" parallel="tests" thread-count="2">
+
+    <test verbose="1" name="testing-firefox" annotations="JDK">
+        <parameter name="browser" value="firefox"/>
+
+        <classes>
+            <class name="Tests.EventPortal.UpcomingEventsCountTest"/>
+<!--            <class name="Tests.EventPortal.EventCardViewTest"/>
+            <class name="Tests.EventPortal.EventDetailInfoTest"/>
+            <class name="Tests.EventPortal.PastEventsInChinaTests"/>
+            <class name="Tests.EventPortal.SearchTalksByKeyword"/>
+            <class name="Tests.EventPortal.TalksFiltrationByCategory"/>
+            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>-->
+        </classes>
+
+    </test>
+
+    <test verbose="1" name="testing-chrome" annotations="JDK">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="Tests.EventPortal.UpcomingEventsCountTest"/>
+<!--            <class name="Tests.EventPortal.EventCardViewTest"/>
+            <class name="Tests.EventPortal.EventDetailInfoTest"/>
+            <class name="Tests.EventPortal.PastEventsInChinaTests"/>
+            <class name="Tests.EventPortal.SearchTalksByKeyword"/>
+            <class name="Tests.EventPortal.TalksFiltrationByCategory"/>
+            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>-->
+        </classes>
+
+    </test>
+
+</suite>

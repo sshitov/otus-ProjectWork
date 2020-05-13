@@ -5,6 +5,7 @@ import Helpers.Pages.TalkPage;
 import Helpers.Pages.TalksLibraryPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class TalksFiltrationByCategory extends BaseTest {
@@ -13,9 +14,10 @@ public class TalksFiltrationByCategory extends BaseTest {
     private TalksLibraryPage talksLibraryPage;
     private TalkPage talkPage;
 
+    @Parameters("browser")
     @BeforeMethod
-    public void createWebDriver() {
-        driverCreate();
+    public void createWebDriver(String browserName) {
+        driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         talksLibraryPage = new TalksLibraryPage(getDriver());
         talkPage = new TalkPage(getDriver());
