@@ -1,4 +1,4 @@
-package Config;
+package Helpers.Config;
 
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.Config.Sources;

@@ -8,6 +8,16 @@
     <artifactId>OTUS.ProjectWork</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-epam-healenium</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/epam/healenium</url>
+        </repository>
+    </repositories>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,6 +66,12 @@
             <version>1.0.10</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.epam.healenium</groupId>
+            <artifactId>healenium-web</artifactId>
+            <version>2.0.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -79,12 +95,26 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-<!--                    <includes>
-                        <include>**/Tests/*.java</include>
-                    </includes>
-                    <perCoreThreadCount>false</perCoreThreadCount>
-                    <parallel>methods</parallel>
-                    <threadCount>3</threadCount>-->
+                    <!--          <suiteXmlFiles>
+                                <file>src/test/resources/testNG.xml</file>
+                              </suiteXmlFiles>
+                              <properties>
+                                <property>
+                                  <name>suiteThreadPoolSize</name>
+                                  <value>2</value>
+                                </property>
+                              </properties>-->
+
+<!--                    <properties>
+                        <property>
+                            <name>parallel</name>
+                            <value>methods</value>
+                        </property>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>30</value>
+                        </property>
+                    </properties>-->
                 </configuration>
             </plugin>
 

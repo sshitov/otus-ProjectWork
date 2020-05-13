@@ -1,12 +1,10 @@
 package Tests.EventPortal;
 
-import Pages.MainPage;
-import Pages.TalkPage;
-import Pages.TalksLibraryPage;
+import Helpers.Pages.MainPage;
+import Helpers.Pages.TalkPage;
+import Helpers.Pages.TalksLibraryPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
-import java.net.MalformedURLException;
 
 public class TalksFiltrationByCategory extends BaseTest {
 
@@ -14,14 +12,9 @@ public class TalksFiltrationByCategory extends BaseTest {
     private TalksLibraryPage talksLibraryPage;
     private TalkPage talkPage;
 
-    @BeforeClass
-    public void setupDriver() {
-        driverLoad();
-    }
-
     @BeforeMethod
-    public void createWebDriver() throws MalformedURLException {
-        create();
+    public void createWebDriver() {
+        driverCreate();
         mainPage = new MainPage(getDriver());
         talksLibraryPage = new TalksLibraryPage(getDriver());
         talkPage = new TalkPage(getDriver());
@@ -29,7 +22,7 @@ public class TalksFiltrationByCategory extends BaseTest {
 
     @AfterMethod
     public void closeWebDriver() {
-        quit();
+        driverQuit();
     }
 
     @Test

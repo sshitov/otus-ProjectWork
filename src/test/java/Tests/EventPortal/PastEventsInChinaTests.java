@@ -1,11 +1,10 @@
 package Tests.EventPortal;
 
-import Pages.EventsPage;
-import Pages.MainPage;
+import Helpers.Pages.EventsPage;
+import Helpers.Pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.Date;
 
@@ -14,21 +13,16 @@ public class PastEventsInChinaTests extends BaseTest {
     private MainPage mainPage;
     private EventsPage eventsPage;
 
-    @BeforeClass
-    public void setupDriver() {
-        driverLoad();
-    }
-
     @BeforeMethod
-    public void createWebDriver() throws MalformedURLException {
-        create();
+    public void createWebDriver() {
+        driverCreate();
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
     }
 
     @AfterMethod
     public void closeWebDriver() {
-        quit();
+        driverQuit();
     }
 
     @Test

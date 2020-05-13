@@ -1,12 +1,10 @@
 package Tests.EventPortal;
 
-import Pages.EventPage;
-import Pages.EventsPage;
-import Pages.MainPage;
+import Helpers.Pages.EventPage;
+import Helpers.Pages.EventsPage;
+import Helpers.Pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
-import java.net.MalformedURLException;
 
 public class EventDetailInfoTest extends BaseTest {
 
@@ -14,14 +12,9 @@ public class EventDetailInfoTest extends BaseTest {
     private EventsPage eventsPage;
     private EventPage eventPage;
 
-    @BeforeClass
-    public void setupDriver() {
-        driverLoad();
-    }
-
     @BeforeMethod
-    public void createWebDriver() throws MalformedURLException {
-        create();
+    public void createWebDriver() {
+        driverCreate();
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
         eventPage = new EventPage(getDriver());
@@ -29,7 +22,7 @@ public class EventDetailInfoTest extends BaseTest {
 
     @AfterMethod
     public void closeWebDriver() {
-        quit();
+        driverQuit();
     }
 
     @Test

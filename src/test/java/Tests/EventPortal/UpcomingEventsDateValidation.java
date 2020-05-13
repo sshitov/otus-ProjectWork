@@ -1,11 +1,12 @@
 package Tests.EventPortal;
 
-import Pages.EventsPage;
-import Pages.MainPage;
+import Helpers.Pages.EventsPage;
+import Helpers.Pages.MainPage;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.Date;
 
@@ -14,21 +15,16 @@ public class UpcomingEventsDateValidation extends BaseTest {
     private MainPage mainPage;
     private EventsPage eventsPage;
 
-    @BeforeClass
-    public void setupDriver() {
-        driverLoad();
-    }
-
     @BeforeMethod
-    public void createWebDriver() throws MalformedURLException {
-        create();
+    public void createWebDriver() {
+        driverCreate();
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
     }
 
     @AfterMethod
     public void closeWebDriver() {
-        quit();
+        driverQuit();
     }
 
     @Test
