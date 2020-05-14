@@ -33,12 +33,18 @@ public class FirefoxDriverManager extends DriverManager {
     protected void createDriver() {
 
         // Part for Selenoid
-/*        DesiredCapabilities capabilities = new DesiredCapabilities();
+/*
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(selenoidBrowserName);
         capabilities.setVersion(selenoidBrowserVersion);
         capabilities.setCapability("enableVNC", selenoidEnableVNC);
         capabilities.setCapability("enableVideo", selenoidEnableVideo);
-        driver = new RemoteWebDriver(new URL(selenoidUrl), capabilities);*/
+
+        WebDriver delegate = new RemoteWebDriver(new URL(selenoidUrl), capabilities);
+        driver = SelfHealingDriver.create(delegate, config);
+        driver.manage().timeouts().implicitlyWait(implicitlyWaitValue, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+*/
 
         FirefoxOptions options = new FirefoxOptions();
         options.setBinary("D:/Программы/Mozilla/firefox.exe");

@@ -3,17 +3,21 @@
 
 <suite name="TestSuites" parallel="tests" thread-count="2">
 
+    <listeners>
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
+    </listeners>
+
     <test verbose="1" name="testing-firefox" annotations="JDK">
         <parameter name="browser" value="firefox"/>
 
         <classes>
             <class name="Tests.EventPortal.UpcomingEventsCountTest"/>
-<!--            <class name="Tests.EventPortal.EventCardViewTest"/>
+            <class name="Tests.EventPortal.EventCardViewTest"/>
             <class name="Tests.EventPortal.EventDetailInfoTest"/>
             <class name="Tests.EventPortal.PastEventsInChinaTests"/>
             <class name="Tests.EventPortal.SearchTalksByKeyword"/>
             <class name="Tests.EventPortal.TalksFiltrationByCategory"/>
-            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>-->
+            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>
         </classes>
 
     </test>
@@ -23,12 +27,12 @@
 
         <classes>
             <class name="Tests.EventPortal.UpcomingEventsCountTest"/>
-<!--            <class name="Tests.EventPortal.EventCardViewTest"/>
+            <class name="Tests.EventPortal.EventCardViewTest"/>
             <class name="Tests.EventPortal.EventDetailInfoTest"/>
             <class name="Tests.EventPortal.PastEventsInChinaTests"/>
             <class name="Tests.EventPortal.SearchTalksByKeyword"/>
             <class name="Tests.EventPortal.TalksFiltrationByCategory"/>
-            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>-->
+            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>
         </classes>
 
     </test>
