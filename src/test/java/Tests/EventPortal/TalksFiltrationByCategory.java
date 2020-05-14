@@ -16,7 +16,7 @@ public class TalksFiltrationByCategory extends BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void createWebDriver(String browserName) {
+    public void setUp(String browserName) {
         driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         talksLibraryPage = new TalksLibraryPage(getDriver());
@@ -24,7 +24,7 @@ public class TalksFiltrationByCategory extends BaseTest {
     }
 
     @AfterMethod
-    public void closeWebDriver() {
+    public void tearDown() {
         driverQuit();
     }
 

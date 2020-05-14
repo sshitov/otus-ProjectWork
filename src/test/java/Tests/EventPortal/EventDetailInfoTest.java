@@ -16,7 +16,7 @@ public class EventDetailInfoTest extends BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void createWebDriver(String browserName) {
+    public void setUp(String browserName) {
         driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
@@ -24,7 +24,7 @@ public class EventDetailInfoTest extends BaseTest {
     }
 
     @AfterMethod
-    public void closeWebDriver() {
+    public void tearDown() {
         driverQuit();
     }
 

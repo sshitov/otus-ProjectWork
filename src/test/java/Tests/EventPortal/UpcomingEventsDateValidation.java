@@ -18,14 +18,14 @@ public class UpcomingEventsDateValidation extends BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void createWebDriver(String browserName) {
+    public void setUp(String browserName) {
         driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());
     }
 
     @AfterMethod
-    public void closeWebDriver() {
+    public void tearDown() {
         driverQuit();
     }
 

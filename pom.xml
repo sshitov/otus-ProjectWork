@@ -97,7 +97,7 @@
                 <configuration>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile>testNg.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testNg.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                 </configuration>
