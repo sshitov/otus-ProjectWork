@@ -6,8 +6,8 @@ import org.aeonbits.owner.Config.Sources;
 @Sources("classpath:FirefoxConfig.properties")
 public interface FirefoxConfig extends Config{
 
-    @Key("pathToExe")
-    String pathToExe();
+    @Key("implicitlyWaitValue")
+    int implicitlyWaitValue();
 
     @Key("selenoidBrowserName")
     String selenoidBrowserName();

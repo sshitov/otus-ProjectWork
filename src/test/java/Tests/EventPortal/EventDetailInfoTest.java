@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+
 public class EventDetailInfoTest extends BaseTest {
 
     private MainPage mainPage;
@@ -16,7 +18,7 @@ public class EventDetailInfoTest extends BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void setUp(String browserName) {
+    public void setUp(String browserName) throws MalformedURLException {
         driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());

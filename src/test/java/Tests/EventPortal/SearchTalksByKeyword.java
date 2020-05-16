@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+
 public class SearchTalksByKeyword extends BaseTest {
 
     private MainPage mainPage;
@@ -14,7 +16,7 @@ public class SearchTalksByKeyword extends BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void setUp(String browserName) {
+    public void setUp(String browserName) throws MalformedURLException {
         driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         talksLibraryPage = new TalksLibraryPage(getDriver());
@@ -26,7 +28,7 @@ public class SearchTalksByKeyword extends BaseTest {
     }
 
     @Test
-    public void searchEventByKeyword() throws InterruptedException {
+    public void searchTalksByKeyword() throws InterruptedException {
 
         mainPage.open();
 

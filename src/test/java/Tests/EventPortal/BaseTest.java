@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
+import java.net.MalformedURLException;
 import java.util.Date;
 
 public class BaseTest {
@@ -24,7 +25,7 @@ public class BaseTest {
         return driver;
     }
 
-    public void driverCreate(String browserName) {
+    public void driverCreate(String browserName) throws MalformedURLException {
         driverManager = DriverManagerFactory.getManager(DriverType.valueOf(browserName));
         driver = driverManager.getDriver();
         logger.debug("Driver is created");

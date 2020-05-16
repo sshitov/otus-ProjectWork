@@ -5,6 +5,7 @@ import Helpers.Pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.Date;
 
@@ -15,7 +16,7 @@ public class PastEventsInChinaTests extends BaseTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void setUp(String browserName) {
+    public void setUp(String browserName) throws MalformedURLException {
         driverCreate(browserName);
         mainPage = new MainPage(getDriver());
         eventsPage = new EventsPage(getDriver());

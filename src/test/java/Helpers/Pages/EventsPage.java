@@ -33,7 +33,7 @@ public class EventsPage {
     @FindBy(css = "[class*='evnt-event-card']")
     protected List<WebElement> eventsList;
 
-    @FindBy(css = ".tab-content > div > div:nth-child(1) > div > div:nth-child(1)")
+    @FindBy(css = ".tab-content > div > div:nth-child(2) > div > div:nth-child(1)")
     protected WebElement firstEventCard;
 
     @FindBy(css = ".date")
