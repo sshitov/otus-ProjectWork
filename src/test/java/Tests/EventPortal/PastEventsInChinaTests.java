@@ -27,7 +27,7 @@ public class PastEventsInChinaTests extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Просмотр прошедших мероприятий в Китае")
     public void pastEventsInChinaTests() throws ParseException {
 
         mainPage.open();

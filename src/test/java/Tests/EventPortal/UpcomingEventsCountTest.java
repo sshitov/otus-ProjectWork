@@ -25,7 +25,7 @@ public class UpcomingEventsCountTest extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Просмотр предстоящих мероприятий")
     public void upcomingEventsCountTest() {
 
         mainPage.open();

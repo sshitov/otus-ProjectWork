@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="TestSuites" parallel="tests" thread-count="2">
+<suite name="TestSuites" parallel="tests" thread-count="4">
 
     <listeners>
-        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
     </listeners>
 
-    <test verbose="1" name="testing-firefox" annotations="JDK">
+    <test verbose="1" name="testing-firefox">
         <parameter name="browser" value="firefox"/>
 
         <classes>
@@ -22,7 +22,7 @@
 
     </test>
 
-    <test verbose="1" name="testing-chrome" annotations="JDK">
+    <test verbose="1" name="testing-chrome">
         <parameter name="browser" value="chrome"/>
 
         <classes>

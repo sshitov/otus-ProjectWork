@@ -3,10 +3,7 @@ package Tests.EventPortal;
 import Helpers.Pages.MainPage;
 import Helpers.Pages.TalkPage;
 import Helpers.Pages.TalksLibraryPage;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 
@@ -30,7 +27,7 @@ public class TalksFiltrationByCategory extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Фильтрация докладов по категориям")
     public void talksFiltrationByCategory() {
 
         mainPage.open();

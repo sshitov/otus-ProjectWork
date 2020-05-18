@@ -27,7 +27,7 @@ public class SearchTalksByKeyword extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Поиск докладов по ключевому слову")
     public void searchTalksByKeyword() throws InterruptedException {
 
         mainPage.open();

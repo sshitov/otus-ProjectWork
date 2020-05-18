@@ -30,7 +30,7 @@ public class UpcomingEventsDateValidation extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Валидация дат предстоящих мероприятий")
     public void upcomingEventsDateValidation() throws ParseException {
 
         mainPage.open();

@@ -30,7 +30,7 @@ public class EventDetailInfoTest extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Просмотр детальной информации о мероприятии")
     public void eventDetailInfoTest() {
 
         mainPage.open();

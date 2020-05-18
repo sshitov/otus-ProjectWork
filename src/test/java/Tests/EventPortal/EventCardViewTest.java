@@ -27,7 +27,7 @@ public class EventCardViewTest extends BaseTest {
         driverQuit();
     }
 
-    @Test
+    @Test(description = "Просмотр карточек мероприятий")
     public void eventCardViewTest() {
 
         mainPage.open();
