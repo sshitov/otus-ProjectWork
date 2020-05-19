@@ -15,11 +15,9 @@ public class BaseTest {
 
     public static final Logger logger = LogManager.getLogger(BaseTest.class.getName());
     protected DriverManager driverManager;
-    public SoftAssert softAssert = new SoftAssert();
-
-    Date currentDate = new Date();
-
     private WebDriver driver;
+    public SoftAssert softAssert = new SoftAssert();
+    Date currentDate = new Date();
 
     public WebDriver getDriver() {
         return driver;
