@@ -11,13 +11,13 @@
         <parameter name="browser" value="firefox"/>
 
         <classes>
-            <class name="Tests.EventPortal.UpcomingEventsCountTest"/>
-            <class name="Tests.EventPortal.EventCardViewTest"/>
-            <class name="Tests.EventPortal.EventDetailInfoTest"/>
-<!--            <class name="Tests.EventPortal.PastEventsInChinaTests"/>-->
-            <class name="Tests.EventPortal.SearchTalksByKeyword"/>
-<!--            <class name="Tests.EventPortal.TalksFiltrationByCategory"/>-->
-            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>
+            <class name="tests.UpcomingEventsCountTest"/>
+            <class name="tests.EventCardViewTest"/>
+            <class name="tests.EventDetailInfoTest"/>
+<!--            <class name="PastEventsInChinaTests"/>-->
+            <class name="tests.SearchTalksByKeyword"/>
+<!--            <class name="TalksFiltrationByCategory"/>-->
+            <class name="tests.UpcomingEventsDateValidation"/>
         </classes>
 
     </test>
@@ -26,13 +26,13 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
-            <class name="Tests.EventPortal.UpcomingEventsCountTest"/>
-            <class name="Tests.EventPortal.EventCardViewTest"/>
-            <class name="Tests.EventPortal.EventDetailInfoTest"/>
-            <class name="Tests.EventPortal.PastEventsInChinaTests"/>
-            <class name="Tests.EventPortal.SearchTalksByKeyword"/>
-<!--            <class name="Tests.EventPortal.TalksFiltrationByCategory"/>-->
-            <class name="Tests.EventPortal.UpcomingEventsDateValidation"/>
+            <class name="tests.UpcomingEventsCountTest"/>
+            <class name="tests.EventCardViewTest"/>
+            <class name="tests.EventDetailInfoTest"/>
+            <class name="tests.PastEventsInChinaTests"/>
+            <class name="tests.SearchTalksByKeyword"/>
+<!--            <class name="TalksFiltrationByCategory"/>-->
+            <class name="tests.UpcomingEventsDateValidation"/>
         </classes>
 
     </test>

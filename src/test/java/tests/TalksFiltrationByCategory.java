@@ -1,8 +1,8 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Pages.MainPage;
-import Helpers.Pages.TalkPage;
-import Helpers.Pages.TalksLibraryPage;
+import helpers.pages.MainPage;
+import helpers.pages.TalkPage;
+import helpers.pages.TalksLibraryPage;
 import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
@@ -48,13 +48,16 @@ public class TalksFiltrationByCategory extends BaseTest {
             talksLibraryPage.openTalkPage(talkUrl);
 
             // Verifying that categories contain the 'Design' value
-            softAssert.assertTrue(talkPage.categoriesIsContains("Design"));
+            softAssert.assertTrue(talkPage.categoriesIsContains("Design"),
+                    "The category is not contains search value");
 
             // Verifying that location contains the 'Belarus' value
-            softAssert.assertTrue(talkPage.locationText().contains("Belarus"));
+            softAssert.assertTrue(talkPage.locationText().contains("Belarus"),
+                    "The location is not contains search value");
 
             // Verifying that language contains the 'English' value
-            softAssert.assertEquals(talkPage.languageText(), "ENGLISH");
+            softAssert.assertEquals(talkPage.languageText(), "ENGLISH",
+                    "The language is not equal the search value");
 
         }
         softAssert.assertAll();

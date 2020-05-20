@@ -1,7 +1,7 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Pages.MainPage;
-import Helpers.Pages.TalksLibraryPage;
+import helpers.pages.MainPage;
+import helpers.pages.TalksLibraryPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -38,7 +38,8 @@ public class SearchTalksByKeyword extends BaseTest {
 
         // Verification that all 'talks' in the list in title contains search value
         for (String name : talksLibraryPage.getTalksListTitles()) {
-            softAssert.assertTrue(name.contains("Azure") || name.contains("azure"));
+            softAssert.assertTrue(name.contains("Azure") || name.contains("azure"),
+                    "Talks list contains talk without search value");
         }
         softAssert.assertAll();
     }

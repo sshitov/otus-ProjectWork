@@ -1,7 +1,7 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Pages.EventsPage;
-import Helpers.Pages.MainPage;
+import helpers.pages.EventsPage;
+import helpers.pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -42,7 +42,8 @@ public class PastEventsInChinaTests extends BaseTest {
         eventsPage.eventListUpdateWait();
 
         // Verification that card count in the counter is right
-        softAssert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
+        softAssert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue(),
+                "Number in counter and event list size is not the same");
 
         // Verification that events dates less than current date
         for (Date date : eventsPage.getEventsDates()) {

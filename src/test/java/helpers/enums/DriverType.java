@@ -1,4 +1,4 @@
-package Helpers.Enums;
+package helpers.enums;
 
 public enum DriverType {
     chrome,

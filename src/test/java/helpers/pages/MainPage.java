@@ -1,6 +1,6 @@
-package Helpers.Pages;
+package helpers.pages;
 
-import Helpers.Config.CommonConfig;
+import helpers.сonfig.CommonConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

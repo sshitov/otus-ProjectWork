@@ -1,7 +1,7 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Pages.EventsPage;
-import Helpers.Pages.MainPage;
+import helpers.pages.EventsPage;
+import helpers.pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

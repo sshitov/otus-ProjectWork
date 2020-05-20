@@ -1,4 +1,4 @@
-package Helpers.Pages;
+package helpers.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -130,7 +130,7 @@ public class TalksLibraryPage {
             if (firstTalksTitleWebElements.size() == secondTalksTitleWebElements.size()) {
                 logger.info(secondTalksTitleWebElements.size());
                 for (WebElement talk : secondTalksTitleWebElements) {
-                    talkNames.add(talk.getText());
+                    talkNames.add(talk.getText().trim());
                 }
                 break;
             }

@@ -1,7 +1,7 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Pages.EventsPage;
-import Helpers.Pages.MainPage;
+import helpers.pages.EventsPage;
+import helpers.pages.MainPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -35,12 +35,12 @@ public class EventCardViewTest extends BaseTest {
         mainPage.openEventsPage();
 
         // Verification that card contains info about location, language, title, date, register info, speakers
-        softAssert.assertTrue(eventsPage.eventCardLocation().isDisplayed());
-        softAssert.assertTrue(eventsPage.eventCardLanguage().isDisplayed());
-        softAssert.assertTrue(eventsPage.eventCardName().isDisplayed());
-        softAssert.assertTrue(eventsPage.eventCardDate().isDisplayed());
-        softAssert.assertTrue(eventsPage.eventCardRegisterInfo().isDisplayed());
-        softAssert.assertTrue(eventsPage.eventCardSpeakers().isDisplayed());
+        softAssert.assertTrue(eventsPage.eventCardLocation().isDisplayed(), "The event location is not displayed");
+        softAssert.assertTrue(eventsPage.eventCardLanguage().isDisplayed(), "The event language is not displayed");
+        softAssert.assertTrue(eventsPage.eventCardName().isDisplayed(),"The event title is not displayed");
+        softAssert.assertTrue(eventsPage.eventCardDate().isDisplayed(),"The event date is not displayed");
+        softAssert.assertTrue(eventsPage.eventCardRegisterInfo().isDisplayed(), "Information about registration is not displayed");
+        softAssert.assertTrue(eventsPage.eventCardSpeakers().isDisplayed(), "The speakers are not displayed");
         softAssert.assertAll();
 
     }

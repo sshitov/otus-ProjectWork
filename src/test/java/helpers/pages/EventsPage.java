@@ -1,4 +1,4 @@
-package Helpers.Pages;
+package helpers.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -89,7 +89,7 @@ public class EventsPage {
     }
 
     public int getEventsCounterValue() {
-        return Integer.parseInt(eventsCounterValue.getText());
+        return Integer.parseInt(eventsCounterValue.getText().trim());
     }
 
     public int getEventsListSize() {

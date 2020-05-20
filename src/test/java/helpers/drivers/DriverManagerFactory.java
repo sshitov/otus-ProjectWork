@@ -1,6 +1,6 @@
-package Helpers.Drivers;
+package helpers.drivers;
 
-import Helpers.Enums.DriverType;
+import helpers.enums.DriverType;
 
 public class DriverManagerFactory {
 

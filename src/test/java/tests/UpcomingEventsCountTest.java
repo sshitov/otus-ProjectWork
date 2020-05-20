@@ -1,7 +1,7 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Pages.EventsPage;
-import Helpers.Pages.MainPage;
+import helpers.pages.EventsPage;
+import helpers.pages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -33,7 +33,8 @@ public class UpcomingEventsCountTest extends BaseTest {
         mainPage.openEventsPage();
 
         // Verifying that value in upcoming events counter is equals actual event count in the list
-        Assert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue());
+        Assert.assertEquals(eventsPage.getEventsListSize(), eventsPage.getEventsCounterValue(),
+                "Number in counter and event list size is not the same");
 
     }
 }

@@ -1,8 +1,8 @@
-package Tests.EventPortal;
+package tests;
 
-import Helpers.Drivers.DriverManager;
-import Helpers.Drivers.DriverManagerFactory;
-import Helpers.Enums.DriverType;
+import helpers.drivers.DriverManager;
+import helpers.drivers.DriverManagerFactory;
+import helpers.enums.DriverType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package Helpers.Pages;
+package helpers.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +34,7 @@ public class TalkPage {
     public ArrayList<String> categoriesNamesList() {
         ArrayList<String> categoriesName = new ArrayList<>();
         for (WebElement category : categoriesWebElement) {
-            categoriesName.add(category.getText());
+            categoriesName.add(category.getText().trim());
         }
         return categoriesName;
     }

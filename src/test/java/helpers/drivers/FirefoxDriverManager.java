@@ -1,6 +1,6 @@
-package Helpers.Drivers;
+package helpers.drivers;
 
-import Helpers.Config.ChromeConfig;
+import helpers.сonfig.FirefoxConfig;
 import com.epam.healenium.SelfHealingDriver;
 import com.typesafe.config.Config;
 import org.aeonbits.owner.ConfigFactory;
@@ -12,20 +12,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class ChromeDriverManager extends DriverManager {
+public class FirefoxDriverManager extends DriverManager {
 
-    public static ChromeConfig chromeConfig = ConfigFactory.create(ChromeConfig.class, System.getProperties());
+    public static FirefoxConfig firefoxConfig = ConfigFactory.create(FirefoxConfig.class, System.getProperties());
     Config config = com.typesafe.config.ConfigFactory.load("healenium.properties");
 
-    int implicitlyWaitValue = chromeConfig.implicitlyWaitValue();
-    String selenoidBrowserName = chromeConfig.selenoidBrowserName();
-    String selenoidBrowserVersion = chromeConfig.selenoidBrowserVersion();
-    Boolean selenoidEnableVNC = chromeConfig.selenoidEnableVNC();
-    Boolean selenoidEnableVideo = chromeConfig.selenoidEnableVideo();
-    String selenoidUrl = chromeConfig.selenoidUrl();
+    String selenoidBrowserName = firefoxConfig.selenoidBrowserName();
+    String selenoidBrowserVersion = firefoxConfig.selenoidBrowserVersion();
+    Boolean selenoidEnableVNC = firefoxConfig.selenoidEnableVNC();
+    Boolean selenoidEnableVideo = firefoxConfig.selenoidEnableVideo();
+    String selenoidUrl = firefoxConfig.selenoidUrl();
+    int implicitlyWaitValue = firefoxConfig.implicitlyWaitValue();
 
     @Override
     protected void createDriver() throws MalformedURLException {
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName(selenoidBrowserName);
@@ -38,5 +39,6 @@ public class ChromeDriverManager extends DriverManager {
         driver = SelfHealingDriver.create(delegate, config);
         driver.manage().timeouts().implicitlyWait(implicitlyWaitValue, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+
     }
 }
