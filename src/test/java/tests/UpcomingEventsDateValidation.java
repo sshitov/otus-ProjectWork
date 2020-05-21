@@ -39,10 +39,12 @@ public class UpcomingEventsDateValidation extends BaseTest {
 
         // Verification that events date more or equals than the current date
         for (Date date : eventsPage.getEventsDates()) {
-            if (currentDate.compareTo(date) > 0)
-                Assert.fail();
+            if (currentDate.equals(date)) {
+                if (currentDate.compareTo(date) > 0) {
+                    Assert.fail();
+                }
+            }
         }
-
     }
 
 }

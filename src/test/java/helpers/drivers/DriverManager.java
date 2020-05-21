@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 
 public abstract class DriverManager {
     protected WebDriver driver;
+
     protected abstract void createDriver() throws MalformedURLException;
 
     public void quitDriver() {
