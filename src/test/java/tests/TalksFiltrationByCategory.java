@@ -1,9 +1,13 @@
 package tests;
 
+import com.epam.healenium.annotation.DisableHealing;
 import helpers.pages.MainPage;
 import helpers.pages.TalkPage;
 import helpers.pages.TalksLibraryPage;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
@@ -27,6 +31,7 @@ public class TalksFiltrationByCategory extends BaseTest {
         driverQuit();
     }
 
+    @DisableHealing
     @Test(description = "Фильтрация докладов по категориям")
     public void talksFiltrationByCategory() {
 

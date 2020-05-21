@@ -14,9 +14,8 @@
             <class name="tests.UpcomingEventsCountTest"/>
             <class name="tests.EventCardViewTest"/>
             <class name="tests.EventDetailInfoTest"/>
-<!--            <class name="PastEventsInChinaTests"/>-->
             <class name="tests.SearchTalksByKeyword"/>
-<!--            <class name="TalksFiltrationByCategory"/>-->
+            <class name="tests.TalksFiltrationByCategory"/>
             <class name="tests.UpcomingEventsDateValidation"/>
         </classes>
 
@@ -31,7 +30,7 @@
             <class name="tests.EventDetailInfoTest"/>
             <class name="tests.PastEventsInChinaTests"/>
             <class name="tests.SearchTalksByKeyword"/>
-<!--            <class name="TalksFiltrationByCategory"/>-->
+            <class name="tests.TalksFiltrationByCategory"/>
             <class name="tests.UpcomingEventsDateValidation"/>
         </classes>
 
